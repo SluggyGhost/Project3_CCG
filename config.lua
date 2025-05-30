@@ -1,7 +1,7 @@
 
 gameState = {
   turn = 1,
-  phase = TURN_PHASE.DRAW
+  phase = nil
 }
 winningScore = 20
 turnLimit = false   -- Off by default

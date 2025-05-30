@@ -1,8 +1,8 @@
 
 CARD_STATE = {
-  IDLE = 1,
-  MOUSE_OVER = 2,
-  GRABBED = 3
+  IDLE = 0,
+  MOUSE_OVER = 1,
+  GRABBED = 2
 }
 
 TURN_PHASE = {
