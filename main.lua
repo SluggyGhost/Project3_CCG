@@ -15,6 +15,10 @@ require "zone"
 function love.load()
   love.window.setTitle("Clash of Titans")
 
+  -- Set the window and background
+  love.window.setMode(960, 640)
+  love.graphics.setBackgroundColor(COLOR.DARKGREEN)
+
   grabber = GrabberClass:new()
 end
 
