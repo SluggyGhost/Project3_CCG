@@ -30,13 +30,13 @@ end
 function CardClass:draw()
   -- Draw drop shadow (if held or hovered)
   if self.state ~= CARD_STATE.IDLE then
-    love.graphics.setColor(colorsRGB.black, 0.8)
+    love.graphics.setColor(COLOR.BLACK, 0.8)
     local offset = 4 * (self.state == CARD_STATE.GRABBED and 2 or 1)
     love.graphics.rectangle("fill", self.position.x + offset, self.position.y + offset, self.size.x, self.size.y, 6, 6)
   end
 
   -- Draw card base
-  love.graphics.setColor(colorsRGB.white, 1)
+  love.graphics.setColor(COLOR.WHITE)
   love.graphics.rectangle("fill", self.position.x, self.position.y, self.size.x, self.size.y, 6, 6)
 
   -- TODO: Draw card markings
@@ -49,4 +49,15 @@ function CardClass:checkForMouseOver(grabber)
   end
 
   local mousePos = grabber.currentMousePos
+  if not mousePos then return false end
+
+  local isMouseOver =
+    mousePos.x > self.position.x and
+    mousePos.x < self.position.x + self.size.x and
+    mousePos.y > self.position.y and
+    mousePos.y < self.position.y + self.size.y
+
+  self.state = isMouseOver and CARD_STATE.MOUSE_OVER or CARD_STATE.IDLE
+  
+  return isMouseOver
 end
