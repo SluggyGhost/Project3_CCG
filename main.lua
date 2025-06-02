@@ -13,6 +13,16 @@ require "zone"
 
 function love.load()
   love.window.setTitle("Clash of Titans")
+  
+  local csv = require("csvreader")
+  local cards = csv.loadCSV("cards.csv")
+  for _, card in ipairs(cards) do
+    print("Card: " .. card.name)
+    print("  Cost: " .. card.cost)
+    print("  Power: " .. card.power)
+    print("  Text: " .. card.text)
+    print()
+  end
 
   -- Set the window and background
   love.window.setMode(width, height)
@@ -42,8 +52,8 @@ end
 function love.draw()
   -- Zone outlines
   love.graphics.setColor(COLOR.LIME, 1)
-  local zonePosY = borderMargin + cardHeight
   love.graphics.rectangle("line", borderMargin, borderMargin, width - 2*borderMargin, height - 2*borderMargin)
+  local zonePosY = borderMargin + cardHeight
   love.graphics.rectangle("line", borderMargin, zonePosY, zoneWidth, zoneHeight)
   love.graphics.rectangle("line", borderMargin + zoneWidth + zoneMargin, zonePosY, zoneWidth, zoneHeight)
   love.graphics.rectangle("line", borderMargin + 2*zoneWidth + 2*zoneMargin, zonePosY, zoneWidth, zoneHeight)
