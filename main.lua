@@ -15,7 +15,7 @@ function love.load()
   love.window.setTitle("Clash of Titans")
 
   -- Set the window and background
-  love.window.setMode(960, 640)
+  love.window.setMode(width, height)
   love.graphics.setBackgroundColor(COLOR.DARKGREEN)
 
   -- Game elements
@@ -23,6 +23,11 @@ function love.load()
   drawnCards = {}
 
   table.insert(drawnCards, CardClass:new())
+  table.insert(drawnCards, CardClass:new())
+  table.insert(drawnCards, CardClass:new())
+  table.insert(drawnCards, CardClass:new())
+  
+  print(width .. ", " .. height)
 end
 
 function love.update()
@@ -35,6 +40,17 @@ function love.update()
 end
 
 function love.draw()
+  -- Zone outlines
+  love.graphics.setColor(COLOR.LIME, 1)
+  local zonePosY = borderMargin + cardHeight
+  love.graphics.rectangle("line", borderMargin, borderMargin, width - 2*borderMargin, height - 2*borderMargin)
+  love.graphics.rectangle("line", borderMargin, zonePosY, zoneWidth, zoneHeight)
+  love.graphics.rectangle("line", borderMargin + zoneWidth + zoneMargin, borderMargin, zoneWidth, zoneHeight)
+  love.graphics.rectangle("line", borderMargin + 2*zoneWidth + 2*zoneMargin, borderMargin, zoneWidth, zoneHeight)
+  love.graphics.rectangle("line", borderMargin, borderMargin + zoneHeight + zoneMargin, zoneWidth, zoneHeight)
+  love.graphics.rectangle("line", borderMargin + zoneWidth + zoneMargin, borderMargin + zoneHeight + zoneMargin, zoneWidth, zoneHeight)
+  love.graphics.rectangle("line", borderMargin + 2*zoneWidth + 2*zoneMargin, borderMargin + zoneHeight + zoneMargin, zoneWidth, zoneHeight)
+
   for _, card in ipairs(drawnCards) do
     card:draw()
   end
