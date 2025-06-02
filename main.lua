@@ -45,11 +45,12 @@ function love.draw()
   local zonePosY = borderMargin + cardHeight
   love.graphics.rectangle("line", borderMargin, borderMargin, width - 2*borderMargin, height - 2*borderMargin)
   love.graphics.rectangle("line", borderMargin, zonePosY, zoneWidth, zoneHeight)
-  love.graphics.rectangle("line", borderMargin + zoneWidth + zoneMargin, borderMargin, zoneWidth, zoneHeight)
-  love.graphics.rectangle("line", borderMargin + 2*zoneWidth + 2*zoneMargin, borderMargin, zoneWidth, zoneHeight)
-  love.graphics.rectangle("line", borderMargin, borderMargin + zoneHeight + zoneMargin, zoneWidth, zoneHeight)
-  love.graphics.rectangle("line", borderMargin + zoneWidth + zoneMargin, borderMargin + zoneHeight + zoneMargin, zoneWidth, zoneHeight)
-  love.graphics.rectangle("line", borderMargin + 2*zoneWidth + 2*zoneMargin, borderMargin + zoneHeight + zoneMargin, zoneWidth, zoneHeight)
+  love.graphics.rectangle("line", borderMargin + zoneWidth + zoneMargin, zonePosY, zoneWidth, zoneHeight)
+  love.graphics.rectangle("line", borderMargin + 2*zoneWidth + 2*zoneMargin, zonePosY, zoneWidth, zoneHeight)
+  zonePosY = zonePosY + zoneHeight + zoneMargin
+  love.graphics.rectangle("line", borderMargin, zonePosY, zoneWidth, zoneHeight)
+  love.graphics.rectangle("line", borderMargin + zoneWidth + zoneMargin, zonePosY, zoneWidth, zoneHeight)
+  love.graphics.rectangle("line", borderMargin + 2*zoneWidth + 2*zoneMargin, zonePosY, zoneWidth, zoneHeight)
 
   for _, card in ipairs(drawnCards) do
     card:draw()
