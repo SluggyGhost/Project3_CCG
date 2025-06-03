@@ -6,7 +6,9 @@ function PlayerClass:new()
   local metadata = {__index = PlayerClass}
   setmetatable(player, metadata)
 
-  player.cards = {}
+  player.hand = {}
+  player.mana = 0
+  player.score = 0
 
   return player
 end

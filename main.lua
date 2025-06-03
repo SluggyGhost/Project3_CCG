@@ -14,7 +14,7 @@ require "zone"
 function love.load()
   love.window.setTitle("Clash of Titans")
   
-  local csv = require("csvreader")
+  local csv = require("csvReader")
   local cards = csv.loadCSV("cards.csv")
   for _, card in ipairs(cards) do
     print("Card: " .. card.name)

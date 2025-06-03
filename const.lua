@@ -5,6 +5,13 @@ CARD_STATE = {
   GRABBED = 2
 }
 
+GAME_STATE = {
+  TITLE = 1,
+  PLAY = 2,
+  VICTORY = 3,
+  LOSS = 4
+}
+
 TURN_PHASE = {
   DRAW = 1,   -- Draw card
   MANA = 2,   -- Set Mana
