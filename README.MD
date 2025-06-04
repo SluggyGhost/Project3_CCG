@@ -2,7 +2,7 @@
 AUTHOR: Joshua Acosta
 CLASS: CMPM 121 - Game Dev Patterns
 DATE CREATED: 5/20/25
-LAST UPDATE: 5/20/25
+LAST UPDATE: 6/3/25
 
 # PROGRAMMING PATTERNS
 **Type Object**
@@ -23,6 +23,19 @@ I have numerous small functions in their own separate file, commands.lua.
 I chose to use this pattern for them because there are different ways to call each one, 
 and I may want to queue the effects (a common practice in card games).
 
+**Prototype**
+The cards are prototypes. This allows the general values and structure to remain consistent, 
+while allowing for each one to have unique abilities through commands.
+
+**State**
+State is used by the grabber and card interaction, to determine when the drop shadow should appear. 
+It is also used keep track of the game and turn phases. I use it there because it works better 
+than numerical values or strings.
+
+**Event Queue**
+While not currently implemented, I plan to use this pattern for the card effects, so they
+activate in reveal order.
+
 # FEEDBACK
 
 
@@ -30,4 +43,4 @@ and I may want to queue the effects (a common practice in card games).
 
 
 # ASSETS USED
-
+None, at least at the present moment.
