@@ -12,6 +12,8 @@ centerX, centerY = width/2, height/2
 borderMargin = height/20
 
 cardWidth, cardHeight = 80, 112
+cardMargin = 4
+
 
 zoneMargin = borderMargin/2
 zoneWidth = (width - (2*borderMargin) - (2*zoneMargin)) / 3

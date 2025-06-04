@@ -39,7 +39,12 @@ function CardPrototype:draw()
   love.graphics.setColor(COLOR.WHITE)
   love.graphics.rectangle("fill", self.position.x, self.position.y, self.size.x, self.size.y, 6, 6)
 
-  -- TODO: Draw card markings
+  -- Draw card markings
+  love.graphics.setColor(COLOR.BLACK)
+  love.graphics.print(self.name, self.position.x + cardMargin, self.position.y + cardMargin)
+  love.graphics.print("cost: " .. self.cost, self.position.x + cardMargin, self.position.y + 6*cardMargin)
+  love.graphics.print("power: " .. self.cost, self.position.x + cardMargin, self.position.y + 10*cardMargin)
+  love.graphics.print(self.text, self.position.x + cardMargin, self.position.y + 14*cardMargin)
 
 end
 
