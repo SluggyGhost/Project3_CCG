@@ -5,6 +5,7 @@ require "card"
 --require "commands"
 require "config"
 require "const"
+require "csvReader"
 require "game"
 require "grabber"
 require "player"
@@ -25,8 +26,7 @@ function love.load()
   drawnCards = {}
   
   -- Read cards from file
-  local csv = require("csvReader")
-  local cardDataList = csv.loadCSV("cards.csv")
+  local cardDataList = loadCSV("cards.csv")
   for _, cardData in ipairs(cardDataList) do
     local card = CardPrototype:new(0, 0, cardData.name, tonumber(cardData.const), tonumber(cardData.power), cardData.text)
     table.insert(player1.deck, card)

@@ -1,6 +1,3 @@
--- Obtained from ChatGPT
-
-local M = {}
 
 -- Simple CSV line splitter
 local function split(str, sep)
@@ -11,7 +8,7 @@ local function split(str, sep)
   return result
 end
 
-function M.loadCSV(path)
+function loadCSV(path)
   local file = io.open(path, "r")
   if not file then error("Could not open file: " .. path) end
   
@@ -34,6 +31,3 @@ function M.loadCSV(path)
   file:close()
   return data
 end
-
-return M
-  
