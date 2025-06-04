@@ -1,9 +1,9 @@
 
-CardClass = {}
+CardPrototype = {}
 
-function CardClass:new(xPos, yPos, name, cost, power, text, isFaceUp)
+function CardPrototype:new(xPos, yPos, name, cost, power, text, isFaceUp)
   local card = {}
-  local metadata = {__index = CardClass}
+  local metadata = {__index = CardPrototype}
   setmetatable(card, metadata)
 
   card.position = Vector(xPos, yPos)
@@ -18,7 +18,7 @@ function CardClass:new(xPos, yPos, name, cost, power, text, isFaceUp)
   return card
 end
 
-function CardClass:update()
+function CardPrototype:update()
   if self.state == CARD_STATE.GRABBED and grabber then
     local mousePos = grabber.currentMousePos
     if mousePos then
@@ -27,7 +27,7 @@ function CardClass:update()
   end
 end
 
-function CardClass:draw()
+function CardPrototype:draw()
   -- Draw drop shadow (if held or hovered)
   if self.state ~= CARD_STATE.IDLE then
     love.graphics.setColor(COLOR.BLACK, 0.8)
@@ -43,7 +43,7 @@ function CardClass:draw()
 
 end
 
-function CardClass:checkForMouseOver(grabber)
+function CardPrototype:checkForMouseOver(grabber)
   if self.state == CARD_STATE.GRABBED then
     return
   end

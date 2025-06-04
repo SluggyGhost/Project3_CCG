@@ -2,14 +2,15 @@
 io.stdout:setvbuf("no")
 
 require "card"
+--require "commands"
 require "config"
 require "const"
-require "deck"
+--require "deck"
 require "game"
 require "grabber"
 require "player"
 require "vector"
-require "zone"
+--require "zone"
 
 function love.load()
   love.window.setTitle("Clash of Titans")
@@ -32,10 +33,10 @@ function love.load()
   grabber = GrabberClass:new()
   drawnCards = {}
 
-  table.insert(drawnCards, CardClass:new())
-  table.insert(drawnCards, CardClass:new())
-  table.insert(drawnCards, CardClass:new())
-  table.insert(drawnCards, CardClass:new())
+  table.insert(drawnCards, CardPrototype:new())
+  table.insert(drawnCards, CardPrototype:new())
+  table.insert(drawnCards, CardPrototype:new())
+  table.insert(drawnCards, CardPrototype:new())
   
   print(width .. ", " .. height)
 end
