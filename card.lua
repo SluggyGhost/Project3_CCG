@@ -61,3 +61,7 @@ function CardPrototype:checkForMouseOver(grabber)
   
   return isMouseOver
 end
+
+function CardPrototype:setPosition(x, y)
+  self.position = Vector(x, y)
+end

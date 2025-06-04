@@ -1,12 +1,10 @@
 
-gameState = {
-  turn = 1,
-  phase = nil
-}
+turnCount = 0
 winningScore = 20
 turnLimit = false   -- Off by default
 maxTurns = 0
-numPlayers = 2  -- Two players by default
+numHumanPlayers = 1 -- One player by default
+numComPlayers = 1   -- One computer competitor by default
 
 width = 960
 height = 640

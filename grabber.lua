@@ -13,7 +13,7 @@ function GrabberClass:new()
   return grabber
 end
 
-function GrabberClass:update()
+function GrabberClass:update(cardList)
   self.currentMousePos = Vector(
     love.mouse.getX(),
     love.mouse.getY()
@@ -21,7 +21,7 @@ function GrabberClass:update()
 
   -- Click (grab)
   if love.mouse.isDown(1) and self.grabPos == nil then
-    self:grab()
+    self:grab(cardList)
   end
 
   -- Release
@@ -30,10 +30,10 @@ function GrabberClass:update()
   end
 end
 
-function GrabberClass:grab()
+function GrabberClass:grab(cardList)
   self.grabPos = self.currentMousePos
 
-  for _, card in ipairs(drawnCards) do
+  for _, card in ipairs(cardList) do
     if card:checkForMouseOver(self) then
       self.heldObject = card
       card.state = CARD_STATE.GRABBED

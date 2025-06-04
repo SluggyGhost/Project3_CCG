@@ -13,16 +13,6 @@ require "vector"
 
 function love.load()
   love.window.setTitle("Clash of Titans")
-  
-  local csv = require("csvReader")
-  local cards = csv.loadCSV("cards.csv")
-  for _, card in ipairs(cards) do
-    print("Card: " .. card.name)
-    print("  Cost: " .. card.cost)
-    print("  Power: " .. card.power)
-    print("  Text: " .. card.text)
-    print()
-  end
 
   -- Set the window and background
   love.window.setMode(width, height)
@@ -30,21 +20,30 @@ function love.load()
 
   -- Game elements
   grabber = GrabberClass:new()
+  player1 = PlayerClass:new(1)   -- human player
+  player2 = PlayerClass:new(0)   -- computer player
   drawnCards = {}
+  
+  -- Read cards from file
+  local csv = require("csvReader")
+  local cardDataList = csv.loadCSV("cards.csv")
+  for _, cardData in ipairs(cardDataList) do
+    local card = CardPrototype:new(0, 0, cardData.name, tonumber(cardData.const), tonumber(cardData.power), cardData.text)
+    table.insert(player1.deck, card)
+  end
 
-  table.insert(drawnCards, CardPrototype:new())
-  table.insert(drawnCards, CardPrototype:new())
-  table.insert(drawnCards, CardPrototype:new())
-  table.insert(drawnCards, CardPrototype:new())
+  player1:drawFromDeck()
+  player1:drawFromDeck()
+  player1:drawFromDeck()
   
   print(width .. ", " .. height)
 end
 
 function love.update()
-  grabber:update()
+  grabber:update(player1.hand)
   checkForMouseHover()
 
-  for _, card in ipairs(drawnCards) do
+  for _, card in ipairs(player1.hand) do
     card:update()
   end
 end
@@ -62,7 +61,7 @@ function love.draw()
   love.graphics.rectangle("line", borderMargin + zoneWidth + zoneMargin, zonePosY, zoneWidth, zoneHeight)
   love.graphics.rectangle("line", borderMargin + 2*zoneWidth + 2*zoneMargin, zonePosY, zoneWidth, zoneHeight)
 
-  for _, card in ipairs(drawnCards) do
+  for _, card in ipairs(player1.hand) do
     card:draw()
   end
 
@@ -77,7 +76,7 @@ function checkForMouseHover()
     return
   end
 
-  for _, card in ipairs(drawnCards) do
+  for _, card in ipairs(player1.hand) do
     card:checkForMouseOver(grabber)
   end
 end
