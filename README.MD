@@ -10,14 +10,6 @@ The Vector table acts as a type object.
 This allows me to create 2D vector coordinates, 
 useful for positioning and sizing.
 
-**Update Method**
-Each object (card, zone, player, gameObj, deck) has an update method.
-The main game loop calls this update method for each object once per frame.
-
-**Game Loop**
-The functions love.update and love.draw act as the game loop.
-This allows the game world to be updated and drawn every frame.
-
 **Command**
 I have numerous small functions in their own separate file, commands.lua.
 I chose to use this pattern for them because there are different ways to call each one, 
@@ -37,7 +29,21 @@ While not currently implemented, I plan to use this pattern for the card effects
 activate in reveal order.
 
 # FEEDBACK
+**Cassian Jones**
+- try to make a skeleton for your code, to avoid on-the-fly thinking
+    - already have an outline, but I am reviewing it and updating it to keep it aligned with current goals
+- the player:toggleType function seems superflous
+    - this function was removed
 
+**Andy Newton**
+- csvreader returns M, which no other modules does. Consider adapting the csvreader to align it with the pattern of the rest of the code
+    - updated csvReader to mainly use the loadCSV function, which is called from main
+- use printf instead of print to allow for text wrapping
+    - implemented
+- move more things out of main
+    - in progess; still building out more methods
+- add more documentation for functions
+    - added more documentation to existing code
 
 # POSTMORTEM
 
