@@ -46,7 +46,11 @@ activate in reveal order.
     - added more documentation to existing code
 
 # POSTMORTEM
-
+I felt like I had to start again from this project. While I used my solitaire work for reference, I wasn't able to use much of it for this. 
+I feel like what really held me back was not having a proper structure plan from the beginning. While I knew that cards were important, I 
+wasn't certain how every other class, prototype, and object factored into it. What I mean is, I only had a vague plan from the collaborative board,
+and should have tried to solidify the structure before committing to anything concrete. While I have a good architecture plan *now*, I ran out of 
+time to fully implement it, or to implement much of the logic I meant to. I need to plan these projects out better in the future.
 
 # ASSETS USED
 None, at least at the present moment.

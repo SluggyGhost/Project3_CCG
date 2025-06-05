@@ -10,7 +10,7 @@ require "game"
 require "grabber"
 require "player"
 require "vector"
---require "zone"
+require "zone"
 
 function love.load()
   love.window.setTitle("Clash of Titans")
@@ -23,12 +23,12 @@ function love.load()
   grabber = GrabberClass:new()
   player1 = PlayerClass:new(1)   -- human player
   player2 = PlayerClass:new(0)   -- computer player
-  drawnCards = {}
+  -- drawnCards = {}
   
   -- Read cards from file
   local cardDataList = loadCSV("cards.csv")
   for _, cardData in ipairs(cardDataList) do
-    local card = CardPrototype:new(0, 0, cardData.name, tonumber(cardData.const), tonumber(cardData.power), cardData.text)
+    local card = CardPrototype:new(0, 0, cardData.name, tonumber(cardData.cost), tonumber(cardData.power), cardData.text)
     table.insert(player1.deck, card)
   end
 
