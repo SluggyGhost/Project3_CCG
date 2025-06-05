@@ -18,15 +18,6 @@ function PlayerClass:new(num)
   return player
 end
 
-function PlayerClass:toggleType(num)
-  if num == 0 then
-    self.type = PLAYER_TYPE.COMPUTER
-  end
-  if num == 1 then
-    self.type = PLAYER_TYPE.HUMAN
-  end
-end
-
 function PlayerClass:drawFromDeck()
   if #self.deck > 0 then
     local card = table.remove(self.deck)
