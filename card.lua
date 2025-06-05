@@ -40,11 +40,13 @@ function CardPrototype:draw()
   love.graphics.rectangle("fill", self.position.x, self.position.y, self.size.x, self.size.y, 6, 6)
 
   -- Draw card markings
+  love.graphics.setColor(COLOR.BLUE)
+  love.graphics.printf(self.cost, self.position.x + cardMargin, self.position.y + cardMargin, cardWidth - 2*cardMargin, "left")
+  love.graphics.setColor(COLOR.RED)
+  love.graphics.printf(self.power, self.position.x + cardMargin, self.position.y + cardMargin, cardWidth - 2*cardMargin, "right")
   love.graphics.setColor(COLOR.BLACK)
-  love.graphics.print(self.name, self.position.x + cardMargin, self.position.y + cardMargin)
-  love.graphics.print("cost: " .. self.cost, self.position.x + cardMargin, self.position.y + 6*cardMargin)
-  love.graphics.print("power: " .. self.cost, self.position.x + cardMargin, self.position.y + 10*cardMargin)
-  love.graphics.print(self.text, self.position.x + cardMargin, self.position.y + 14*cardMargin)
+  love.graphics.printf(self.name, self.position.x + cardMargin, self.position.y + 3*cardMargin, cardWidth - 2*cardMargin, "center")
+  love.graphics.printf(self.text, self.position.x + cardMargin, self.position.y + 6*cardMargin, cardWidth, "left", 0, 0.9, 0.9)
 
 end
 
